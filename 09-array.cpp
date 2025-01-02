@@ -4,18 +4,13 @@ using namespace std;
 
 int main() {
   int size = 5;
-  int nums[size];
+  int nums[] = {5 , 6, 4, 7, 1, 9, 8, 2};
   int smallestNum = INT64_MAX;
   // int largestNum = INT64_MIN;
 
   // initiallize another variable where the i value will be stored if the samllest number is found 
-  int indexOfSmallestNum = ' ';
+  int indexOfSmallestNum = 0;
   
-
-  cout << "Please enter some numbers:" << endl;
-  for (int i = 0; i < size; i++) {
-    cin >> nums[i];
-  }
 
   for (int i = 0; i < size; i++) {
     if (nums[i] < smallestNum) {
