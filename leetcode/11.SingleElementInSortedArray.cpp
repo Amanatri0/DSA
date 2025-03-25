@@ -7,8 +7,7 @@ int main() {
   vector<int> nums = {1, 1, 2, 3, 3, 4, 4, 5, 5};
   int n = nums.size();
 
-  if (n == 1)
-    return nums[0];
+  if (n == 1) return nums[0];
 
   int start = 0, end = n - 1;
 
