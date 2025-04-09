@@ -40,3 +40,35 @@ int main() {
 
   return 0;
 }
+
+
+// Optimal solution using ------------------>>> Dutch National Flag algrothim
+
+int main() {
+    int arr[] = {2, 1, 0, 0, 1, 2, 1, 0, 2, 0};
+    int n = 10;
+
+    int mid = 0, low = 0 , high = n-1; 
+    while (mid <= high){
+        
+        if (arr[mid] == 0){
+            swap(arr[mid], arr[low]);
+            mid ++ ;
+            low ++ ;
+        }else if (arr[mid] == 1) {
+            mid++ ;
+        }else {
+            swap(arr[high], arr[mid]) ;
+            high -- ;
+        }
+        
+    }
+
+    for (int i = 0;  i < n; i++){
+        cout << arr[i] << " ";
+    }
+    
+
+    return 0;
+    
+}
