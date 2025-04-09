@@ -36,36 +36,32 @@ using namespace std;
 
 int fruitsCollected(vector<int> &fruits, vector<int> &baskets) {
 
-    int n = 3 ;
+  int n = 3;
 
-    vector<int> newFruits;
-    vector<int> newBaskets;
-    int remaning =  0 ;
+  vector<int> newFruits;
+  vector<int> newBaskets;
+  int remaning = 0;
 
-    for (int i = 0; i < n; i++){
-        for (int j = 0; i < n; j++){
-            
-            if (fruits[i] <= baskets[j] ){
-                newFruits.push_back(fruits[i]) ;
-                newBaskets.push_back(baskets[j]) ;
-            }
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
 
-            if (fruits[i] > baskets[j]){
-                remaning = fruits[i] - baskets[j]
-            }
-                
-        }
-        
+      if (fruits[i] <= baskets[j]) {
+        newFruits.push_back(fruits[i]);
+        newBaskets.push_back(baskets[j]);
+      }
+
+      if (fruits[i] > baskets[j]) {
+        remaning = fruits[i] - baskets[j];
+      }
     }
-
-    return remaning ;
-    
+  }
+  return remaning;
 }
 
 int main() {
-    vector<int> fruits = {4, 2, 5} ; 
-    vector<int> baskets = {3, 5, 4} ;
+  vector<int> fruits = {3, 6, 1};
+  vector<int> baskets = {6, 4, 7};
 
-    cout << fruitsCollected(fruits, baskets) << endl;
-    return 0;
+  cout << fruitsCollected(fruits, baskets) << endl;
+  return 0;
 }
