@@ -17,7 +17,7 @@ int main() {
     }
   }
 
-// ------------ for unsorted array's -----------------------
+// ------------ for unsorted array's and remove duplicates -----------------------
 
   for (int i = 0; i < newArr.size(); i++) {
     int isDuplicate = false;
@@ -34,7 +34,7 @@ int main() {
     }
   }
 
-  // ------------------- for sorted array's --------------------
+  // ------------------- for sorted array's and duplicates --------------------
 
 //   for (int i = 0; i < n ; i++) {
 //     if(i == 0 || arr[i] != arr[i - 1]){
