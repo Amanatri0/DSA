@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -9,7 +10,6 @@ int main(){
         s.erase(s.find(p), s.length());
     }
     
-
     return 0;
 
 }
