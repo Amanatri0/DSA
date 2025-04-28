@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <unordered_map>
 using namespace std;
 
 vector<int> pairSum(vector<int> nums, int target)
@@ -42,7 +43,7 @@ int main()
   return 0;
 }
 
-/*--------------------------------------------------- optimized approach --------------------------------------------*/
+/*--------------------------------------------------- Better approach --------------------------------------------*/
 
 vector<int> twoSum(vector<int> nums, int target)
 {
@@ -76,45 +77,33 @@ vector<int> twoSum(vector<int> nums, int target)
   return ans;
 }
 
+/*---------------------------------------- Optimized Approach O(n) time complexicity using hashing ------------------------------------*/
+
 int main()
 {
-  vector<int> nums = {2, 7, 11, 15};
-  int target = 17;
-  int n = nums.size();
-
-  int i = 0, j = n - 1;
-
-  // for (int i = 0; i < nums.size(); i++)
-  // {
-  //   for (int j = i + 1; j < nums.size(); j++)
-  //   {
-  //     if (nums[i] + nums[j] == target)
-  //     {
-  //       cout << "Target found : " << nums[i] << " + " << nums[j] << endl;
-  //     }
-  //   }
-  // }
+  vector<int> nums = {5, 2, 11, 7, 15};
+  unordered_map<int, int> m;
 
   vector<int> ans;
 
-  while (i <= j)
+  int target = 9;
+  for (int i = 0; i < nums.size(); i++)
   {
-    int sum = nums[i] + nums[j];
+    int first = nums[i];
+    int sec = target - first;
 
-    if (sum > target)
+    if (m.find(sec) != m.end())
     {
-      j--;
+      ans.push_back(i);
+      ans.push_back(m[sec]);
     }
-    else if (sum < target)
-    {
-      i++;
-    }
-    else
-    {
-      ans.push_back(nums[i]);
-      ans.push_back(nums[j]);
-      return ans;
-    }
+
+    m[first] = i;
+  }
+
+  for (int i = 0; i < nums.size(); i++)
+  {
+    cout << ans[i] << endl;
   }
 
   return 0;
