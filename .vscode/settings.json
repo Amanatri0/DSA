@@ -8,6 +8,8 @@
     "type_traits": "cpp",
     "xstring": "cpp",
     "xutility": "cpp",
-    "utility": "cpp"
+    "utility": "cpp",
+    "unordered_map": "cpp",
+    "unordered_set": "cpp"
   }
 }

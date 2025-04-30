@@ -1,40 +1,40 @@
 #include <iostream>
-#include <vector>
 #include <unordered_map>
+#include <unordered_set>
+#include <vector>
 using namespace std;
 
 int main()
 {
-    vector<vector<int>> nums = {{9, 1, 7},
-                                {8, 9, 2},
-                                {3, 4, 6}};
-
-    unordered_map<int, int> m;
-
+    int grid[3][3] = {{9, 1, 7}, {8, 9, 2}, {3, 4, 6}};
+    unordered_set<int> s;
     vector<int> ans;
+    int a, b;
 
-    for (int i = 0; i < nums.size(); i++)
+    int n = grid.size();
+
+    int sum = 0;
+    // repeat number
+    for (int i = 0; i < n; i++)
     {
-        int first = nums[i][i];
-
-        int sec = first - nums[i][i + 1];
-
-        if (m.find(sec) != m.end())
+        for (int j = 0; j < n; j++)
         {
-            ans.push_back(i);
-        }
+            sum += grid[i][j];
+            if (s.find(grid[i][j]) != s.end())
+            {
+                a = grid[i][j];
+                ans.push_back(a);
+                break;
+            }
 
-        if (sec == 0)
-        {
-            ans.push_back(i)
+            s.insert(grid[i][j]);
         }
-
-        m[first] = i;
     }
 
-    for (int i = 0; i < nums.size(); i++)
-    {
-        cout << ans[i] << endl;
-    }
-    return 0;
+    // missing number
+    int expectedSum = (n * n) * (n * n + 1) / 2;
+    b = expectedSum + a - sum;
+
+    ans.push_back(b);
+    return ans;
 }
