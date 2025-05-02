@@ -24,7 +24,6 @@ int main()
             {
                 a = grid[i][j];
                 ans.push_back(a);
-                break;
             }
 
             s.insert(grid[i][j]);
