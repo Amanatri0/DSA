@@ -38,7 +38,7 @@ int main()
     }
 }
 
-// ---------------------------------- optimized code for 3 Sum --------------------------------------------
+// ---------------------------------- optimized code for 3 Sum  == > O(nlogn + n*n) --------------------------------------------
 
 int main()
 {
@@ -51,7 +51,7 @@ int main()
     for (int i = 0; i < n; i++)
     {
 
-        if (i < n && arr[i] == arr[i - 1])
+        if (i > 0 && arr[i] == arr[i - 1])
         {
             continue;
         }
