@@ -1,43 +1,7 @@
 #include <iostream>
+#include <unordered_map>
 #include <vector>
 using namespace std;
-
-int main()
-{
-    vector<int> arr = {1, 2, 3};
-    int tar = 3;
-    int n = arr.size();
-
-    int start = 0, end = n - 1;
-    int freq = 0;
-    while (start < end)
-    {
-        int mid = start + (end - start) / 2;
-        int sum = start + (start + 1);
-
-        if (mid == tar)
-        {
-            cout << "Target found : " << mid << endl;
-            freq++;
-        }
-
-        if (sum < tar)
-        {
-            start++;
-        }
-        else if (sum > tar)
-        {
-            end--;
-        }
-        else
-        {
-            cout << "Target found : " << mid << endl;
-            freq++;
-        }
-    }
-
-    return freq;
-}
 
 int main()
 {
@@ -63,4 +27,53 @@ int main()
 
     cout << freq << endl;
     return 0;
+}
+
+// ------------------------------------------- Optimal approach using PrefixSum ----------------------------------------
+
+int main()
+{
+    vector<int> arr = {9, 4, 20, 3, 10, 5};
+    int tar = 33;
+
+    int count = 0;
+    int n = arr.size();
+    vector<int> prefixSum(n, 0);
+
+    prefixSum[0] = arr[0];
+
+    for (int i = 1; i < n; i++)
+    {
+        prefixSum[i] = prefixSum[i - 1] + arr[i];
+    }
+
+    unordered_map<int, int> m;
+
+    for (int j = 0; j < n; j++)
+    {
+        if (prefixSum[j] == tar)
+        {
+            count++;
+        }
+
+        int val = prefixSum[j] - tar;
+
+        if (m.find(val) != m.end())
+        {
+            count += m[val];
+        }
+
+        cout << "Value of count will be : " << m[val] << endl;
+
+        if (m.find(prefixSum[j]) == m.end())
+        {
+            m[prefixSum[j]] = 0;
+        }
+
+        m[prefixSum[j]]++;
+
+        cout << " m of Prefix sum of j : " << m[prefixSum[j]] << endl;
+    }
+
+        return 0;
 }
