@@ -2,13 +2,16 @@
 #include <vector>
 using namespace std;
 
-int main() {
+int main()
+{
   vector<int> height = {1, 8, 6, 2, 5, 4, 8, 3, 7};
 
   int maxWater = 0;
 
-  for (int i = 0; i < height.size(); i++) {
-    for (int j = i + 1; j < height.size(); j++) {
+  for (int i = 0; i < height.size(); i++)
+  {
+    for (int j = i + 1; j < height.size(); j++)
+    {
 
       int w = j - i;
       // cout << "W for Wolf: " << w << endl;
@@ -18,7 +21,7 @@ int main() {
 
       maxWater = max(maxWater, area);
 
-    //   cout << "Maxwater" << maxWater << endl;
+      //   cout << "Maxwater" << maxWater << endl;
     }
   }
   cout << maxWater << endl;
@@ -26,28 +29,33 @@ int main() {
   return maxWater;
 }
 
-
 // ---------------------------------------- Optimzed approach --------------------------------------------
 
-int main(){
+int main()
+{
 
-    vector<int> height = {1, 8, 6, 2, 5, 4, 8, 3, 7};
-       int n = height.size();
-        int maxWater = 0;
+  vector<int> height = {1, 8, 6, 2, 5, 4, 8, 3, 7};
+  int n = height.size();
+  int maxWater = 0;
 
-        int lp = 0;
-        int rp = n -1;
+  int left = 0, right = n - 1;
 
-        while( lp < rp){
-            int w = rp - lp;
-            int ht = min(height[lp], height[rp]);
-            int area = w * ht;
+  while (left < right)
+  {
+    int width = right - left;
+    int minHeight = min(height[left], height[right]);
 
-            maxWater = max(maxWater, area);
+    maxWater = max(maxWater, minHeight * width);
 
-            height[lp] < height[rp] ? lp++ : rp-- ;
-
-        }
-       
-        return maxWater;
+    if (height[left] < height[right])
+    {
+      left++;
     }
+    else
+    {
+      right--;
+    }
+  }
+
+  return maxWater;
+}
