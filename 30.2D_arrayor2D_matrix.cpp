@@ -105,3 +105,22 @@ int main()
 
     return sum;
 }
+
+int main()
+{
+    int matrix[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+
+    int sum = 0;
+    int row = 0, col = sizeof(matrix[0]) / sizeof(matrix[0][0]) - 1;
+
+    for (int i = 0; i < col; i++)
+    {
+        sum += matrix[row][col];
+        row++;
+        col--;
+    }
+
+    cout << sum << endl;
+
+    return 0;
+}

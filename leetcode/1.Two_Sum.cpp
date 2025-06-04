@@ -108,3 +108,23 @@ int main()
 
   return 0;
 }
+
+int main()
+{
+  vector<int> nums = {5, 2, 11, 7, 15};
+  unordered_map<int, int> m;
+
+  int target = 9;
+
+  for (int i = 0; i < nums.size(); i++)
+  {
+    int sum = target - nums[i];
+
+    if (m.find(sum) != m.end())
+    {
+      cout << "Found = " << nums[i] << endl;
+    }
+
+    m.insert(nums[i]);
+  }
+}
