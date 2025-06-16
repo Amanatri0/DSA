@@ -11,6 +11,8 @@
     "utility": "cpp",
     "unordered_map": "cpp",
     "unordered_set": "cpp",
-    "list": "cpp"
+    "list": "cpp",
+    "compare": "cpp",
+    "iterator": "cpp"
   }
 }
